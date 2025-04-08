@@ -7,7 +7,7 @@ import teye2 from './assets/character_pics/teye2.png'
 import teye1 from './assets/character_pics/teye1.png'
 
 
-const eyes = [{previewEye:eye1, thumbnailEye:teye1}, {previewEye:eye2, thumbnailEye:teye2}]
+const eyes = [{ previewEye: eye1, thumbnailEye: teye1 }, { previewEye: eye2, thumbnailEye: teye2 }]
 
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
 
       <div class="container">
         <div class="text-container">
-          <h1>silly character creator</h1>
+          <h1>sketchy chibis</h1>
           <p>make your own silly sketchy characters</p>
         </div>
 
@@ -30,13 +30,23 @@ function App() {
             <img src={selectedEye} alt="eye" class="image-eye" />
           </div>
 
-          <div class="asset-selection-panel">
-            {eyes.map((eye) => {
-              return <button> <img src={eye.thumbnailEye} alt="eye" onClick={() => setSelectedEye(eye.previewEye)} style={{ height: `40px`, width: `40px` }} /> </button>
-            })}
+          <div className="asset-panel-actions">
+            <div class="asset-selection-panel">
+              <div className="features-selection-container">
+                {eyes.map((eye) => {
+                  return <button> <img src={eye.thumbnailEye} alt="eye" onClick={() => setSelectedEye(eye.previewEye)} style={{ height: `40px`, width: `40px` }} /> </button>
+                })}
 
+                <span>{ "More options coming soon... • ᴗ <  "}</span>
+              </div>
+            </div>
 
+            <div className="actions-container">
+              <button>Randomize</button>
+              <button>Download Image</button>
+            </div>
           </div>
+
         </div>
       </div>
 
