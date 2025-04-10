@@ -1,5 +1,8 @@
 import { useState } from 'react'
 import './App.css'
+
+// components
+
 import face from './assets/character_pics/face.png'
 import eye1 from './assets/character_pics/eye1.png'
 import eye2 from './assets/character_pics/eye2.png'
@@ -9,6 +12,14 @@ import teye1 from './assets/character_pics/teye1.png'
 
 const eyes = [{ previewEye: eye1, thumbnailEye: teye1 }, { previewEye: eye2, thumbnailEye: teye2 }]
 
+const Title = () => {
+  return (
+      <div class="text-container">
+          <h1>sketchy chibis</h1>
+          <p>make your own silly sketchy characters</p>
+      </div>
+  )
+}
 
 function App() {
   const [selectedEye, setSelectedEye] = useState(eye1)
@@ -17,11 +28,8 @@ function App() {
     <>
 
       <div class="container">
-        <div class="text-container">
-          <h1>sketchy chibis</h1>
-          <p>make your own silly sketchy characters</p>
-        </div>
 
+        <Title />
 
         <div class="character-studio">
 
@@ -30,15 +38,25 @@ function App() {
             <img src={selectedEye} alt="eye" class="image-eye" />
           </div>
 
-          <div className="asset-panel-actions">
-            <div class="asset-selection-panel">
-              <div className="features-selection-container">
-                {eyes.map((eye) => {
-                  return <button> <img src={eye.thumbnailEye} alt="eye" onClick={() => setSelectedEye(eye.previewEye)} style={{ height: `40px`, width: `40px` }} /> </button>
-                })}
+          <div className="actions">
 
-                <span>{ "More options coming soon... • ᴗ <  "}</span>
+            <div class="asset-selection-panel">
+
+
+              <div className="tabs-container">
+                {/* need to add here */}
               </div>
+
+              <div className="features-list-wrapper">
+                <div className="features-list">
+
+                  {eyes.map((eye) => {
+                    return <button> <img src={eye.thumbnailEye} alt="eye" onClick={() => setSelectedEye(eye.previewEye)} style={{ height: `40px`, width: `40px` }} /> </button>
+                  })}
+
+                </div>
+              </div>
+
             </div>
 
             <div className="actions-container">
