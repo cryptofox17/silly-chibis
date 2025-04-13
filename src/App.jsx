@@ -219,12 +219,31 @@ const Tabs = ({
 
 
 function App() {
+
   const [activeTab, setActiveTab] = useState("hair");
   const [selectedEye, setSelectedEye] = useState(eye1)
   const [selectedHair, setSelectedHair] = useState(hair1)
   const [selectedOutfit, setSelectedOutfit] = useState(outfit1)
   const [selectedAccessory, setSelectedAccessory] = useState(accessory1)
   const [selectedMouth, setSelectedMouth] = useState(mouth1)
+
+
+  const RandomizeFeatures = () => {
+   
+     const index = Math.floor(Math.random() * eyes.length);
+     setSelectedEye(eyes[index].previewEye);
+   
+     const getRandomItem = (items, propertyName) => {
+      const index = Math.floor(Math.random() * items.length);
+      return items[index][propertyName];
+    };
+
+    setSelectedEye(getRandomItem(eyes, 'previewEye'));
+    setSelectedHair(getRandomItem(hairs, 'previewHair'));
+    setSelectedOutfit(getRandomItem(outfits, 'previewOutfit'));
+    setSelectedMouth(getRandomItem(mouths, 'previewMouth'));
+    setSelectedAccessory(getRandomItem(outfits, 'previewOutfit'))
+  }
 
   return (
     <>
@@ -262,8 +281,8 @@ function App() {
             </div>
 
             <div className="actions-container">
-              <button>Randomize</button>
-              <button>Download Image</button>
+              <button onClick={() => RandomizeFeatures()} class="primary-btn"> Randomize</button>
+              <button class="primary-btn">Download Image</button>
             </div>
           </div>
 
