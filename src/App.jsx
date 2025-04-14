@@ -9,8 +9,8 @@ import eye3 from "./assets/character_pics/eyes/eye3.webp";
 import eye4 from "./assets/character_pics/eyes/eye4.webp";
 
 //eyes thumbnail
-import teye2 from "./assets/character_pics/eyes/teye2.png";
-import teye1 from "./assets/character_pics/eyes/teye1.png";
+import teye2 from "./assets/character_pics/eyes/teye2.webp";
+import teye1 from "./assets/character_pics/eyes/teye1.webp";
 import teye3 from "./assets/character_pics/eyes/teye3.webp";
 import teye4 from "./assets/character_pics/eyes/teye4.webp";
 
