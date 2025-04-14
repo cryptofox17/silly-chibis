@@ -275,11 +275,18 @@ function App() {
       const index = Math.floor(Math.random() * items.length);
       return items[index][propertyName];
     };
-    setSelectedEye(getRandomItem(eyes, "preview"));
-    setSelectedHair(getRandomItem(hairs, "preview"));
-    setSelectedOutfit(getRandomItem(outfits, "preview"));
-    setSelectedMouth(getRandomItem(mouths, "preview"));
-    setSelectedAccessory(getRandomItem(outfits, "preview"));
+    let count = 0;
+    const interval = setInterval(() => {
+      count++; // Increment the counter
+      setSelectedEye(getRandomItem(eyes, "preview"));
+      setSelectedHair(getRandomItem(hairs, "preview"));
+      setSelectedOutfit(getRandomItem(outfits, "preview"));
+      setSelectedMouth(getRandomItem(mouths, "preview"));
+      setSelectedAccessory(getRandomItem(outfits, "preview"));
+      if (count === 5) {
+        clearInterval(interval);
+      }
+    }, 150);
   };
 
   return (
