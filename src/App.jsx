@@ -126,8 +126,8 @@ const mouths = [
 const Title = () => {
   return (
     <div class="text-container">
-      <h1>sketchy chibis</h1>
-      <p>make your own silly sketchy characters</p>
+      <h1>silly chibis</h1>
+      <p>make your own sketchy characters</p>
     </div>
   )
 }
@@ -254,12 +254,12 @@ function App() {
         <div class="character-studio">
 
           <div class="character-preview">
-            <img src={face} alt="body" class="image-body" />
-            <img src={selectedEye} alt="eye" class="image-eye" />
-            <img src={selectedHair} alt="hair" class="image-hair" />
-            <img src={selectedOutfit} alt="outfit" class="image-outfit" />
-            <img src={selectedAccessory} alt="accessory" class="image-accessory" />
-            <img src={selectedMouth} alt="mouth" class="image-mouth" />
+            <img src={face} alt="body" class="image-body"  loading="lazy"/>
+            <img src={selectedEye} alt="eye" class="image-eye" loading="lazy"/>
+            <img src={selectedHair} alt="hair" class="image-hair" loading="lazy"/>
+            <img src={selectedOutfit} alt="outfit" class="image-outfit" loading="lazy"/>
+            <img src={selectedAccessory} alt="accessory" class="image-accessory" loading="lazy"/>
+            <img src={selectedMouth} alt="mouth" class="image-mouth" loading="lazy"/>
           </div>
 
           <div className="actions">
