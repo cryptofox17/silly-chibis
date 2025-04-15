@@ -1,6 +1,10 @@
 import { useState } from "react";
 import html2canvas from 'html2canvas';
 
+//icons 
+import donwloadIcon from './icons/download-simple.svg'
+import randomizeIcon from './icons/dice-three.svg'
+
 import face from "./assets/character_pics/face.webp";
 
 // eyes preview
@@ -317,7 +321,7 @@ function App() {
       <div class="container">
         <div class="text-container">
           <h1>silly chibis</h1>
-          <p>make your own sketchy characters</p>
+          <p className="title-subtext">make your own sketchy characters</p>
         </div>
 
         <div class="character-studio" >
@@ -334,6 +338,22 @@ function App() {
          
 
           <div className="actions">
+
+
+
+          <div className="actions-container">
+              <button onClick={() => RandomizeFeatures()} class="primary-btn">
+                {" "}
+                <img src={randomizeIcon} alt="randomize-icon" height={24} width={24}/>
+                Randomize
+              </button>
+              <button onClick={() => DownloadImage()}class="primary-btn"> 
+              
+              <img src={donwloadIcon} alt="download-icon" height={24} width={24}/>
+              Download
+               </button>
+            </div>
+
             <div class="asset-selection-panel">
               <div className="tabs-container">
                 <Tabs
@@ -353,13 +373,7 @@ function App() {
               </div>
             </div>
 
-            <div className="actions-container">
-              <button onClick={() => RandomizeFeatures()} class="primary-btn">
-                {" "}
-                Randomize
-              </button>
-              <button onClick={() => DownloadImage()}class="primary-btn">Download Image</button>
-            </div>
+           
           </div>
         </div>
       </div>
