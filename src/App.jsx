@@ -1,4 +1,5 @@
 import { useState } from "react";
+import html2canvas from 'html2canvas';
 
 import face from "./assets/character_pics/face.webp";
 
@@ -289,6 +290,27 @@ function App() {
     }, 150);
   };
 
+
+  const DownloadImage = () => {
+    html2canvas(document.querySelector("#character-preview")).then(canvas => {
+      // Convert canvas to data URL
+      const dataURL = canvas.toDataURL('image/png');
+      
+      // Create a temporary link element
+      const link = document.createElement('a');
+      link.href = dataURL;
+      link.download = 'sillest-chibi.png'; // Name for downloaded file
+      
+      // Append to the document, click it, and remove it
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+  }
+
+ 
+
+
   return (
     <>
       <div class="container">
@@ -297,19 +319,18 @@ function App() {
           <p>make your own sketchy characters</p>
         </div>
 
-        <div class="character-studio">
-          <div class="character-preview">
+        <div class="character-studio" >
+        <div className="preview-wrapper">
+        <div class="character-preview"id="character-preview">
             <img src={face} alt="body" class="image-body" />
             <img src={selectedEye} alt="eye" class="image-eye" />
             <img src={selectedHair} alt="hair" class="image-hair" />
             <img src={selectedOutfit} alt="outfit" class="image-outfit" />
-            <img
-              src={selectedAccessory}
-              alt="accessory"
-              class="image-accessory"
-            />
+            <img src={selectedAccessory} alt="accessory" class="image-accessory"/>
             <img src={selectedMouth} alt="mouth" class="image-mouth" />
           </div>
+        </div>
+         
 
           <div className="actions">
             <div class="asset-selection-panel">
@@ -336,7 +357,7 @@ function App() {
                 {" "}
                 Randomize
               </button>
-              <button class="primary-btn">Download Image</button>
+              <button onClick={() => DownloadImage()}class="primary-btn">Download Image</button>
             </div>
           </div>
         </div>

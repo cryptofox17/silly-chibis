@@ -83,10 +83,7 @@ h1 {
 		max-width: 750px;
 	}
 
-	.character-preview {
-		width: 100%;
-		height: 14em;
-		position: relative;
+	.preview-wrapper {
 		background: #FFFFFF;
 		border-radius: 1em;
        -webkit-user-drag: none;
@@ -94,12 +91,20 @@ h1 {
        -moz-user-select: none;
        -webkit-user-select: none;
        -ms-user-select: none;
-		
+	   display: flex;
+	   align-items: center;
+	   justify-content: center;
 	}
-	.character-preview img {
+
+	.character-preview {
+		width: 14em;
+		height: 14em;
+		position: relative;
+		background: #FFFFFF;
+	}
+	.character-preview > img {
 		width: 100%;
 		height: 100%;
-        aspect-ratio: 1 / 1;
         object-fit: contain;
 		position: absolute;
 		top: 0;
