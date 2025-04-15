@@ -133,8 +133,9 @@ const Tabs = ({
   return (
     <div className="App">
       <ul className="tabs-wrapper">
-        {tabHeaders.map((e) => (
+        {tabHeaders.map((e,index) => (
           <li
+            key={e-index-"looping-through-headers"}
             onMouseEnter={() => {
               let imagesPreload = [];
               if (e.value === "hair") {
@@ -174,9 +175,9 @@ const Tabs = ({
           <div className="tabs-content">
             {activeTab === "hair" && (
               <div className="tab">
-                {hairs.map((e) => {
+                {hairs.map((e, index) => {
                   return (
-                    <button>
+                    <button key={e-index-"looping-through-buttons"}>
                       {" "}
                       <img
                         src={e.thumbnail}
@@ -191,9 +192,9 @@ const Tabs = ({
 
             {activeTab === "eye" && (
               <div className="tab">
-                {eyes.map((e) => {
+                {eyes.map((e, index) => {
                   return (
-                    <button>
+                    <button key={e-index-"looping-through-buttons"}>
                       {" "}
                       <img
                         src={e.thumbnail}
@@ -208,9 +209,9 @@ const Tabs = ({
 
             {activeTab === "outfit" && (
               <div className="tab">
-                {outfits.map((e) => {
+                {outfits.map((e,index) => {
                   return (
-                    <button>
+                    <button key={e-index-"looping-through-buttons"}>
                       {" "}
                       <img
                         src={e.thumbnail}
@@ -225,9 +226,9 @@ const Tabs = ({
 
             {activeTab === "accessory" && (
               <div className="tab">
-                {accessories.map((e) => {
+                {accessories.map((e,index) => {
                   return (
-                    <button>
+                    <button key={e-index-"looping-through-buttons"}>
                       {" "}
                       <img
                         src={e.thumbnail}
@@ -242,9 +243,9 @@ const Tabs = ({
 
             {activeTab === "mouth" && (
               <div className="tab">
-                {mouths.map((e) => {
+                {mouths.map((e,index) => {
                   return (
-                    <button>
+                    <button key={e-index-"looping-through-buttons"}>
                       {" "}
                       <img
                         src={e.thumbnail}
@@ -283,7 +284,7 @@ function App() {
       setSelectedHair(getRandomItem(hairs, "preview"));
       setSelectedOutfit(getRandomItem(outfits, "preview"));
       setSelectedMouth(getRandomItem(mouths, "preview"));
-      setSelectedAccessory(getRandomItem(outfits, "preview"));
+      setSelectedAccessory(getRandomItem(accessories, "preview"));
       if (count === 5) {
         clearInterval(interval);
       }
