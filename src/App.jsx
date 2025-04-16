@@ -139,7 +139,7 @@ const Tabs = ({
       <ul className="tabs-wrapper">
         {tabHeaders.map((e,index) => (
           <li
-            key={e-index-"looping-through-headers"}
+            key={`${e}-${index}-looping-through-headers`}
             onMouseEnter={() => {
               let imagesPreload = [];
               if (e.value === "hair") {
@@ -181,7 +181,7 @@ const Tabs = ({
               <div className="tab">
                 {hairs.map((e, index) => {
                   return (
-                    <button key={e-index-"looping-through-buttons"}>
+                    <button key={`${e}-${index}-looping-through-hair`}>
                       {" "}
                       <img
                         src={e.thumbnail}
@@ -198,7 +198,7 @@ const Tabs = ({
               <div className="tab">
                 {eyes.map((e, index) => {
                   return (
-                    <button key={e-index-"looping-through-buttons"}>
+                    <button key={`${e}-${index}-looping-through-eye`}>
                       {" "}
                       <img
                         src={e.thumbnail}
@@ -215,7 +215,7 @@ const Tabs = ({
               <div className="tab">
                 {outfits.map((e,index) => {
                   return (
-                    <button key={e-index-"looping-through-buttons"}>
+                    <button key={`${e}-${index}-looping-through-outfits`}>
                       {" "}
                       <img
                         src={e.thumbnail}
@@ -232,7 +232,7 @@ const Tabs = ({
               <div className="tab">
                 {accessories.map((e,index) => {
                   return (
-                    <button key={e-index-"looping-through-buttons"}>
+                    <button key={`${e}-${index}-looping-through-accessory`}>
                       {" "}
                       <img
                         src={e.thumbnail}
@@ -249,7 +249,7 @@ const Tabs = ({
               <div className="tab">
                 {mouths.map((e,index) => {
                   return (
-                    <button key={e-index-"looping-through-buttons"}>
+                    <button key={`${e}-${index}-looping-through-mouth`}>
                       {" "}
                       <img
                         src={e.thumbnail}
@@ -318,21 +318,21 @@ function App() {
 
   return (
     <>
-      <div class="container">
-        <div class="text-container">
+      <div className="container">
+        <div className="text-container">
           <h1>silly chibis</h1>
           <p className="title-subtext">make your own sketchy characters</p>
         </div>
 
-        <div class="character-studio" >
+        <div className="character-studio" >
         <div className="preview-wrapper">
-        <div class="character-preview"id="character-preview">
-            <img src={face} alt="body" class="image-body" />
-            <img src={selectedEye} alt="eye" class="image-eye" />
-            <img src={selectedHair} alt="hair" class="image-hair" />
-            <img src={selectedOutfit} alt="outfit" class="image-outfit" />
-            <img src={selectedAccessory} alt="accessory" class="image-accessory"/>
-            <img src={selectedMouth} alt="mouth" class="image-mouth" />
+        <div className="character-preview"id="character-preview">
+            <img src={face} alt="body" className="image-body" />
+            <img src={selectedEye} alt="eye" className="image-eye" />
+            <img src={selectedHair} alt="hair" className="image-hair" />
+            <img src={selectedOutfit} alt="outfit" className="image-outfit" />
+            <img src={selectedAccessory} alt="accessory" className="image-accessory"/>
+            <img src={selectedMouth} alt="mouth" className="image-mouth" />
           </div>
         </div>
          
@@ -342,19 +342,19 @@ function App() {
 
 
           <div className="actions-container">
-              <button onClick={() => RandomizeFeatures()} class="primary-btn">
+              <button onClick={() => RandomizeFeatures()} className="primary-btn">
                 {" "}
                 <img src={randomizeIcon} alt="randomize-icon" height={24} width={24}/>
                 Randomize
               </button>
-              <button onClick={() => DownloadImage()}class="primary-btn"> 
+              <button onClick={() => DownloadImage()}className="primary-btn"> 
               
               <img src={donwloadIcon} alt="download-icon" height={24} width={24}/>
               Download
                </button>
             </div>
 
-            <div class="asset-selection-panel">
+            <div className="asset-selection-panel">
               <div className="tabs-container">
                 <Tabs
                   activeTab={activeTab}
