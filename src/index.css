@@ -71,6 +71,7 @@ body {
   align-items: center;
   justify-content: center;
   overflow-y: auto;
+  height: 100%;
 }
 
 h1 {
