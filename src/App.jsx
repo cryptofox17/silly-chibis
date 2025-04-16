@@ -289,7 +289,7 @@ function App() {
       setSelectedOutfit(getRandomItem(outfits, "preview"));
       setSelectedMouth(getRandomItem(mouths, "preview"));
       setSelectedAccessory(getRandomItem(accessories, "preview"));
-      if (count === 5) {
+      if (count === 10) {
         clearInterval(interval);
       }
     }, 150);
