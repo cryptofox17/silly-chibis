@@ -1,0 +1,5 @@
+[[headers]]
+  # Match all image files
+  for = "/*.(jpg|jpeg|png|gif|svg|webp)"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
