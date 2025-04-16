@@ -8,9 +8,9 @@ Create your own custom chibi character based on 6 characteristic features and ov
 
 
 ## ✨ Features
-- Create your own random character 
-- Blazing fast (working on it)
-- Download (coming soon)
+✅ Create your own random character 
+✅ Blazingly fast
+✅ Download 
 
 ## 👾 Demo
 ![image](demo.png)
