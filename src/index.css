@@ -79,14 +79,14 @@ body {
 	/* padding: 1em; */
 	font-family: "JetBrains Mono", monospace;
 	text-align: center;
+	background: #000000;
+	background-image: url(stardust.png);
 }
 .container {
 	padding: 2em;
 	margin-right: auto;
 	margin-left: auto;
 	width: 100%;
-	background: #000000;
-	background-image: url(stardust.png);
 	color: #ffffff;
 	/* border-radius: 1em; */
 	display: flex;
