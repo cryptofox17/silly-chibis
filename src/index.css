@@ -133,6 +133,7 @@ h1 {
 	font-size: 0.6rem;
 	border-radius: 100%;
 	font-family: "Pixelify Sans", sans-serif;
+	text-align: center;
 
 }
 
@@ -239,18 +240,22 @@ h1 {
 	flex-wrap: wrap;
 	gap: 1em;
 	align-items: center;
-	justify-content: space-between;
+	justify-content:flex-start;
+	flex: 1 0 0;
 }
 
 .tab button {
 	width: 4em;
 	height: 4em;
+	aspect-ratio: 1/1;
 	border-radius: 0.5em;
-	transition: 0.2s;
+	transition: 0.2s;	
+	background: #f3f2f2;
 }
 
+
 .tab button:hover {
-	background: #ffffff;
+	background: #f3f2f2;
 	cursor: pointer;
 }
 
@@ -335,6 +340,7 @@ li {
 	background: #f3f2f2;
 }
 .active-button {
-	border: 2px dotted black;
+	border: 2px #bfbfbf;
+	border-style: dashed;
 }
 
