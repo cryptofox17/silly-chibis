@@ -7,6 +7,8 @@ import randomizeIcon from "./icons/dice-three.svg";
 
 import face from "./assets/character_pics/face.webp";
 
+import kitty from "./assets/character_pics/kitty.webp";
+
 // eyes preview
 import eye1 from "./assets/character_pics/eyes/eye1.webp";
 import eye2 from "./assets/character_pics/eyes/eye2.webp";
@@ -78,364 +80,369 @@ import taccessory2 from "./assets/character_pics/accessories/taccessory2.webp";
 import taccessory3 from "./assets/character_pics/accessories/taccessory3.webp";
 
 const eyes = [
-	{ preview: eye1, thumbnail: teye1 },
-	{ preview: eye2, thumbnail: teye2 },
-	{ preview: eye3, thumbnail: teye3 },
-	{ preview: eye4, thumbnail: teye4 },
+  { preview: eye1, thumbnail: teye1 },
+  { preview: eye2, thumbnail: teye2 },
+  { preview: eye3, thumbnail: teye3 },
+  { preview: eye4, thumbnail: teye4 },
 ];
 
 const hairs = [
-	{ preview: hair1, thumbnail: thair1 },
-	{ preview: hair2, thumbnail: thair2 },
-	{ preview: hair3, thumbnail: thair3 },
-	{ preview: hair4, thumbnail: thair4 },
-	{ preview: hair5, thumbnail: thair5 },
-	{ preview: hair6, thumbnail: thair6 },
-	{ preview: hair7, thumbnail: thair7 },
+  { preview: hair1, thumbnail: thair1 },
+  { preview: hair2, thumbnail: thair2 },
+  { preview: hair3, thumbnail: thair3 },
+  { preview: hair4, thumbnail: thair4 },
+  { preview: hair5, thumbnail: thair5 },
+  { preview: hair6, thumbnail: thair6 },
+  { preview: hair7, thumbnail: thair7 },
 ];
 
 const outfits = [
-	{ preview: outfit1, thumbnail: toutfit1 },
-	{ preview: outfit2, thumbnail: toutfit2 },
-	{ preview: outfit3, thumbnail: toutfit3 },
-	{ preview: outfit4, thumbnail: toutfit4 },
-	{ preview: outfit5, thumbnail: toutfit5 },
-	{ preview: outfit6, thumbnail: toutfit6 },
+  { preview: outfit1, thumbnail: toutfit1 },
+  { preview: outfit2, thumbnail: toutfit2 },
+  { preview: outfit3, thumbnail: toutfit3 },
+  { preview: outfit4, thumbnail: toutfit4 },
+  { preview: outfit5, thumbnail: toutfit5 },
+  { preview: outfit6, thumbnail: toutfit6 },
 ];
 
 const accessories = [
-	{ preview: accessory1, thumbnail: taccessory1 },
-	{ preview: accessory2, thumbnail: taccessory2 },
-	{ preview: accessory3, thumbnail: taccessory3 },
+  { preview: accessory1, thumbnail: taccessory1 },
+  { preview: accessory2, thumbnail: taccessory2 },
+  { preview: accessory3, thumbnail: taccessory3 },
 ];
 
 const mouths = [
-	{ preview: mouth1, thumbnail: tmouth1 },
-	{ preview: mouth2, thumbnail: tmouth2 },
-	{ preview: mouth3, thumbnail: tmouth3 },
-	{ preview: mouth4, thumbnail: tmouth4 },
-	{ preview: mouth5, thumbnail: tmouth5 },
+  { preview: mouth1, thumbnail: tmouth1 },
+  { preview: mouth2, thumbnail: tmouth2 },
+  { preview: mouth3, thumbnail: tmouth3 },
+  { preview: mouth4, thumbnail: tmouth4 },
+  { preview: mouth5, thumbnail: tmouth5 },
 ];
 
 const tabHeaders = [
-	{ label: "Hair", value: "hair" },
-	{ label: "Eye", value: "eye" },
-	{ label: "Mouth", value: "mouth" },
-	{ label: "Outfit", value: "outfit" },
-	{ label: "Accessory", value: "accessory" },
+  { label: "Hair", value: "hair" },
+  { label: "Eye", value: "eye" },
+  { label: "Mouth", value: "mouth" },
+  { label: "Outfit", value: "outfit" },
+  { label: "Accessory", value: "accessory" },
 ];
 
 const Tabs = ({
-	activeTab,
-	setActiveTab,
-	selectedHair,
-	selectedEye,
-	selectedMouth,
-	selectedAccessory,
-	selectedOutfit,
-	setSelectedEye,
-	setSelectedHair,
-	setSelectedOutfit,
-	setSelectedAccessory,
-	setSelectedMouth,
+  activeTab,
+  setActiveTab,
+  selectedHair,
+  selectedEye,
+  selectedMouth,
+  selectedAccessory,
+  selectedOutfit,
+  setSelectedEye,
+  setSelectedHair,
+  setSelectedOutfit,
+  setSelectedAccessory,
+  setSelectedMouth,
 }) => {
-	return (
-		<div className="App">
-			<ul className="tabs-wrapper">
-				{tabHeaders.map((e, index) => (
-					<li
-						key={`${e}-${index}-looping-through-headers`}
-						onMouseEnter={() => {
-							let imagesPreload = [];
-							if (e.value === "hair") {
-								imagesPreload = hairs;
-							} else if (e.value === "eye") {
-								imagesPreload = eyes;
-							} else if (e.value === "mouth") {
-								imagesPreload = mouths;
-							} else if (e.value === "outfit") {
-								imagesPreload = outfits;
-							} else {
-								imagesPreload = accessories;
-							}
+  return (
+    <div className="App">
+      <ul className="tabs-wrapper">
+        {tabHeaders.map((e, index) => (
+          <li
+            key={`${e}-${index}-looping-through-headers`}
+            onMouseEnter={() => {
+              let imagesPreload = [];
+              if (e.value === "hair") {
+                imagesPreload = hairs;
+              } else if (e.value === "eye") {
+                imagesPreload = eyes;
+              } else if (e.value === "mouth") {
+                imagesPreload = mouths;
+              } else if (e.value === "outfit") {
+                imagesPreload = outfits;
+              } else {
+                imagesPreload = accessories;
+              }
 
-							imagesPreload.forEach((image) => {
-								const newImage1 = new Image();
-								const newImage2 = new Image();
-								newImage1.src = image.preview;
-								window[image] = newImage1;
-								newImage2.src = image.thumbnail;
-								window[image] = newImage2;
-							});
-						}}
-						onClick={() => {
-							setActiveTab(e.value);
-						}}
-						className={activeTab === e.value ? "tab-active" : ""}
-					>
-						{" "}
-						{e.label}{" "}
-					</li>
-				))}
-			</ul>
+              imagesPreload.forEach((image) => {
+                const newImage1 = new Image();
+                const newImage2 = new Image();
+                newImage1.src = image.preview;
+                window[image] = newImage1;
+                newImage2.src = image.thumbnail;
+                window[image] = newImage2;
+              });
+            }}
+            onClick={() => {
+              setActiveTab(e.value);
+            }}
+            className={activeTab === e.value ? "tab-active" : ""}
+          >
+            {" "}
+            {e.label}{" "}
+          </li>
+        ))}
+      </ul>
 
-			<div className="features-list-wrapper">
-				<div className="features-list">
-					<div className="tabs-content">
-						{activeTab === "hair" && (
-							<div className="tab">
-								{hairs.map((e, index) => {
-									return (
-										<button
-											key={`${e}-${index}-looping-through-hair`}
-											className={
-												e.thumbnail === selectedHair.thumbnail
-													? "active-button"
-													: "inactive-button"
-											}
-										>
-											{" "}
-											<img
-												src={e.thumbnail}
-												alt="eye"
-												onClick={() => setSelectedHair(e)}
-											/>{" "}
-										</button>
-									);
-								})}
-							</div>
-						)}
+      <div className="features-list-wrapper">
+        <div className="features-list">
+          <div className="tabs-content">
+            {activeTab === "hair" && (
+              <div className="tab">
+                {hairs.map((e, index) => {
+                  return (
+                    <button
+                      key={`${e}-${index}-looping-through-hair`}
+                      className={
+                        e.thumbnail === selectedHair.thumbnail
+                          ? "active-button"
+                          : "inactive-button"
+                      }
+                    >
+                      {" "}
+                      <img
+                        src={e.thumbnail}
+                        alt="eye"
+                        onClick={() => setSelectedHair(e)}
+                      />{" "}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
 
-						{activeTab === "eye" && (
-							<div className="tab">
-								{eyes.map((e, index) => {
-									return (
-										<button
-											key={`${e}-${index}-looping-through-eye`}
-											className={
-												e.thumbnail === selectedEye.thumbnail
-													? "active-button"
-													: "inactive-button"
-											}
-										>
-											{" "}
-											<img
-												src={e.thumbnail}
-												alt="eye"
-												onClick={() => setSelectedEye(e)}
-											/>{" "}
-										</button>
-									);
-								})}
-							</div>
-						)}
+            {activeTab === "eye" && (
+              <div className="tab">
+                {eyes.map((e, index) => {
+                  return (
+                    <button
+                      key={`${e}-${index}-looping-through-eye`}
+                      className={
+                        e.thumbnail === selectedEye.thumbnail
+                          ? "active-button"
+                          : "inactive-button"
+                      }
+                    >
+                      {" "}
+                      <img
+                        src={e.thumbnail}
+                        alt="eye"
+                        onClick={() => setSelectedEye(e)}
+                      />{" "}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
 
-						{activeTab === "outfit" && (
-							<div className="tab">
-								{outfits.map((e, index) => {
-									return (
-										<button
-											key={`${e}-${index}-looping-through-outfits`}
-											className={
-												e.thumbnail === selectedOutfit.thumbnail
-													? "active-button"
-													: "inactive-button"
-											}
-										>
-											{" "}
-											<img
-												src={e.thumbnail}
-												alt="outfit"
-												onClick={() => setSelectedOutfit(e)}
-											/>{" "}
-										</button>
-									);
-								})}
-							</div>
-						)}
+            {activeTab === "outfit" && (
+              <div className="tab">
+                {outfits.map((e, index) => {
+                  return (
+                    <button
+                      key={`${e}-${index}-looping-through-outfits`}
+                      className={
+                        e.thumbnail === selectedOutfit.thumbnail
+                          ? "active-button"
+                          : "inactive-button"
+                      }
+                    >
+                      {" "}
+                      <img
+                        src={e.thumbnail}
+                        alt="outfit"
+                        onClick={() => setSelectedOutfit(e)}
+                      />{" "}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
 
-						{activeTab === "accessory" && (
-							<div className="tab">
-								{accessories.map((e, index) => {
-									return (
-										<button
-											key={`${e}-${index}-looping-through-accessory`}
-											className={
-												e.thumbnail === selectedAccessory.thumbnail
-													? "active-button"
-													: "inactive-button"
-											}
-										>
-											{" "}
-											<img
-												src={e.thumbnail}
-												alt="accessory"
-												onClick={() => setSelectedAccessory(e)}
-											/>{" "}
-										</button>
-									);
-								})}
-							</div>
-						)}
+            {activeTab === "accessory" && (
+              <div className="tab">
+                {accessories.map((e, index) => {
+                  return (
+                    <button
+                      key={`${e}-${index}-looping-through-accessory`}
+                      className={
+                        e.thumbnail === selectedAccessory.thumbnail
+                          ? "active-button"
+                          : "inactive-button"
+                      }
+                    >
+                      {" "}
+                      <img
+                        src={e.thumbnail}
+                        alt="accessory"
+                        onClick={() => setSelectedAccessory(e)}
+                      />{" "}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
 
-						{activeTab === "mouth" && (
-							<div className="tab">
-								{mouths.map((e, index) => {
-									return (
-										<button
-											key={`${e}-${index}-looping-through-mouth`}
-											className={
-												e.thumbnail === selectedMouth.thumbnail
-													? "active-button"
-													: "inactive-button"
-											}
-										>
-											{" "}
-											<img
-												src={e.thumbnail}
-												alt="mouth"
-												onClick={() => setSelectedMouth(e)}
-											/>{" "}
-										</button>
-									);
-								})}
-							</div>
-						)}
-					</div>
-				</div>
-			</div>
-		</div>
-	);
+            {activeTab === "mouth" && (
+              <div className="tab">
+                {mouths.map((e, index) => {
+                  return (
+                    <button
+                      key={`${e}-${index}-looping-through-mouth`}
+                      className={
+                        e.thumbnail === selectedMouth.thumbnail
+                          ? "active-button"
+                          : "inactive-button"
+                      }
+                    >
+                      {" "}
+                      <img
+                        src={e.thumbnail}
+                        alt="mouth"
+                        onClick={() => setSelectedMouth(e)}
+                      />{" "}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 function App() {
-	const [activeTab, setActiveTab] = useState("hair");
-	const [selectedEye, setSelectedEye] = useState(eyes[0]);
-	const [selectedHair, setSelectedHair] = useState(hairs[0]);
-	const [selectedOutfit, setSelectedOutfit] = useState(outfits[0]);
-	const [selectedAccessory, setSelectedAccessory] = useState(accessories[0]);
-	const [selectedMouth, setSelectedMouth] = useState(mouths[0]);
+  const [activeTab, setActiveTab] = useState("hair");
+  const [selectedEye, setSelectedEye] = useState(eyes[0]);
+  const [selectedHair, setSelectedHair] = useState(hairs[0]);
+  const [selectedOutfit, setSelectedOutfit] = useState(outfits[0]);
+  const [selectedAccessory, setSelectedAccessory] = useState(accessories[0]);
+  const [selectedMouth, setSelectedMouth] = useState(mouths[0]);
 
-	const RandomizeFeatures = () => {
-		const getRandomItem = (items) => {
-			const index = Math.floor(Math.random() * items.length);
-			return items[index];
-		};
-		let count = 0;
-		const interval = setInterval(() => {
-			count++; // Increment the counter
-			setSelectedEye(getRandomItem(eyes));
-			setSelectedHair(getRandomItem(hairs));
-			setSelectedOutfit(getRandomItem(outfits));
-			setSelectedMouth(getRandomItem(mouths));
-			setSelectedAccessory(getRandomItem(accessories));
-			if (count === 10) {
-				clearInterval(interval);
-			}
-		}, 150);
-	};
+  const RandomizeFeatures = () => {
+    const getRandomItem = (items) => {
+      const index = Math.floor(Math.random() * items.length);
+      return items[index];
+    };
+    let count = 0;
+    const interval = setInterval(() => {
+      count++; // Increment the counter
+      setSelectedEye(getRandomItem(eyes));
+      setSelectedHair(getRandomItem(hairs));
+      setSelectedOutfit(getRandomItem(outfits));
+      setSelectedMouth(getRandomItem(mouths));
+      setSelectedAccessory(getRandomItem(accessories));
+      if (count === 10) {
+        clearInterval(interval);
+      }
+    }, 150);
+  };
 
-	const DownloadImage = () => {
-		html2canvas(document.querySelector("#character-preview")).then((canvas) => {
-			// Convert canvas to data URL
-			const dataURL = canvas.toDataURL("image/png");
+  const DownloadImage = () => {
+    html2canvas(document.querySelector("#character-preview")).then((canvas) => {
+      // Convert canvas to data URL
+      const dataURL = canvas.toDataURL("image/png");
 
-			// Create a temporary link element
-			const link = document.createElement("a");
-			link.href = dataURL;
-			link.download = "sillest-chibi.png"; // Name for downloaded file
+      // Create a temporary link element
+      const link = document.createElement("a");
+      link.href = dataURL;
+      link.download = "sillest-chibi.png"; // Name for downloaded file
 
-			// Append to the document, click it, and remove it
-			document.body.appendChild(link);
-			link.click();
-			document.body.removeChild(link);
-		});
-	};
+      // Append to the document, click it, and remove it
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+  };
 
-	return (
-		<>
-			<div className="container">
-				<div className="text-container">
-					<h1>silly chibis</h1>
-					<p className="title-subtext">make your own sketchy characters</p>
-				</div>
+  return (
+    <>
+      <div className="container">
+        <div className="text-container">
+          <h1>silly chibis</h1>
+          <p className="title-subtext">make your own sketchy characters</p>
+        </div>
 
-				<div className="character-studio">
-					<div className="preview-wrapper">
-						<div className="character-preview" id="character-preview">
-							<img src={face} alt="body" className="image-body" />
-							<img src={selectedEye.preview} alt="eye" className="image-eye" />
-							<img
-								src={selectedHair.preview}
-								alt="hair"
-								className="image-hair"
-							/>
-							<img
-								src={selectedOutfit.preview}
-								alt="outfit"
-								className="image-outfit"
-							/>
-							<img
-								src={selectedAccessory.preview}
-								alt="accessory"
-								className="image-accessory"
-							/>
-							<img
-								src={selectedMouth.preview}
-								alt="mouth"
-								className="image-mouth"
-							/>
-						</div>
-					</div>
+        <div className="character-studio">
+        <div className="kitty-image-wrapper">
+              <img src={kitty} alt="kitty" className="kitty-image" />
+              <div className="meow">meow~</div>
+            </div>
+          <div className="preview-wrapper">
+      
+            <div className="character-preview" id="character-preview">
+              <img src={face} alt="body" className="image-body" />
+              <img src={selectedEye.preview} alt="eye" className="image-eye" />
+              <img
+                src={selectedHair.preview}
+                alt="hair"
+                className="image-hair"
+              />
+              <img
+                src={selectedOutfit.preview}
+                alt="outfit"
+                className="image-outfit"
+              />
+              <img
+                src={selectedAccessory.preview}
+                alt="accessory"
+                className="image-accessory"
+              />
+              <img
+                src={selectedMouth.preview}
+                alt="mouth"
+                className="image-mouth"
+              />
+            </div>
+          </div>
 
-					<div className="actions">
-						<div className="actions-container">
-							<button
-								onClick={() => RandomizeFeatures()}
-								className="primary-btn"
-							>
-								{" "}
-								<img
-									src={randomizeIcon}
-									alt="randomize-icon"
-									height={24}
-									width={24}
-								/>
-								Randomize
-							</button>
-							<button onClick={() => DownloadImage()} className="primary-btn">
-								<img
-									src={donwloadIcon}
-									alt="download-icon"
-									height={24}
-									width={24}
-								/>
-								Download
-							</button>
-						</div>
+          <div className="actions">
+            <div className="actions-container">
+              <button
+                onClick={() => RandomizeFeatures()}
+                className="primary-btn"
+              >
+                {" "}
+                <img
+                  src={randomizeIcon}
+                  alt="randomize-icon"
+                  height={24}
+                  width={24}
+                />
+                Randomize
+              </button>
+              <button onClick={() => DownloadImage()} className="primary-btn">
+                <img
+                  src={donwloadIcon}
+                  alt="download-icon"
+                  height={24}
+                  width={24}
+                />
+                Download
+              </button>
+            </div>
 
-						<div className="asset-selection-panel">
-							<div className="tabs-container">
-								<Tabs
-									activeTab={activeTab}
-									setActiveTab={setActiveTab}
-									selectedEye={selectedEye}
-									setSelectedEye={setSelectedEye}
-									selectedHair={selectedHair}
-									setSelectedHair={setSelectedHair}
-									selectedOutfit={selectedOutfit}
-									setSelectedOutfit={setSelectedOutfit}
-									selectedAccessory={selectedAccessory}
-									setSelectedAccessory={setSelectedAccessory}
-									selectedMouth={selectedMouth}
-									setSelectedMouth={setSelectedMouth}
-								/>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</>
-	);
+            <div className="asset-selection-panel">
+              <div className="tabs-container">
+                <Tabs
+                  activeTab={activeTab}
+                  setActiveTab={setActiveTab}
+                  selectedEye={selectedEye}
+                  setSelectedEye={setSelectedEye}
+                  selectedHair={selectedHair}
+                  setSelectedHair={setSelectedHair}
+                  selectedOutfit={selectedOutfit}
+                  setSelectedOutfit={setSelectedOutfit}
+                  selectedAccessory={selectedAccessory}
+                  setSelectedAccessory={setSelectedAccessory}
+                  selectedMouth={selectedMouth}
+                  setSelectedMouth={setSelectedMouth}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
 }
 export default App;
