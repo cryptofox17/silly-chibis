@@ -2,6 +2,7 @@
 	font-family: "Pixelify Sans";
 	src: local("Pixelify Sans"), url(./fonts/PixelifySans-VariableFont_wght.ttf)
 		format("opentype");
+	font-display: swap;
 }
 
 /* Reset */

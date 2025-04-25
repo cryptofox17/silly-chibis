@@ -365,7 +365,7 @@ function App() {
         <div className="character-studio">
         <div className="kitty-image-wrapper">
               <img src={kitty} alt="kitty" className="kitty-image" />
-              <div className="meow">meow</div>
+              <div className="meow">meoww</div>
             </div>
           <div className="preview-wrapper">
       
